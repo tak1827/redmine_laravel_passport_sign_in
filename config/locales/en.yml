@@ -9,6 +9,7 @@ en:
   label_linkedin: Linkedin
   label_qq_connect: QQ
   label_wechat: WeChat
+  label_pptv: PPTV
   label_social_sign_in: Sign in with
   label_provider_help: Help
   title_social_sign_in: Click to sign in with %{provider}

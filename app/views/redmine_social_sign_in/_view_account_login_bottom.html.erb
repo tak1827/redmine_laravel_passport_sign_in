@@ -30,6 +30,11 @@
       <%= image_tag('wechat.png', plugin: 'redmine_social_sign_in', size: '24') %>
     <% end %>
   <% end %>
+  <% if Setting.plugin_redmine_social_sign_in['pptv_enabled'] == '1' %>
+    <%= link_to('social_sign_in/pptv', title: l(:title_social_sign_in, provider: l(:label_pptv))) do %>
+      <%= image_tag('pptv.png', plugin: 'redmine_social_sign_in', size: '24') %>
+    <% end %>
+  <% end %>
 </div>
 <style type="text/css">
   .social_sign_in {
