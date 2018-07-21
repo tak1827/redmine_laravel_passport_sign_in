@@ -2,7 +2,7 @@ Redmine::Plugin.register :redmine_laravel_passport_sign_in do
   name 'Laravel Passport Sign In'
   author ' tak'
   description 'sign in through laravel passport'
-  version '1.0.3'
+  version '2.0.0'
   url ''
 
   settings partial: 'settings/redmine_laravel_passport_sign_in',
