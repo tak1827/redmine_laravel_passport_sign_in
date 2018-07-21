@@ -2,19 +2,22 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class SomeSite < OmniAuth::Strategies::OAuth2
+    class Pptv < OmniAuth::Strategies::OAuth2
       # Give your strategy a name.
       option :name, "pptv"
 
       # This is where you pass the options you would pass when
       # initializing your consumer from the OAuth gem.
       option :client_options, {
-        :site => "http://localhost",
-        :authorize_url => 'http://localhost/oauth/authorize?response_type=code',
-        :token_url => 'http://localhost/oauth/token'
+        :site => "http://172.17.0.3",
+        :authorize_url => 'http://127.0.0.1/oauth/authorize',
+        :token_url => 'http://172.17.0.3/oauth/token'
       }
 
+      #option :client_id, Setting.plugin_redmine_social_sign_in['pptv_app_id']
+      #option :client_secret, Setting.plugin_redmine_social_sign_in['pptv_app_secret']
       option :scope, ''
+      option :provider_ignores_state, true
 
       # These are called after authentication has succeeded. If
       # possible, you should try to set the UID without making
@@ -26,10 +29,14 @@ module OmniAuth
       info do
         {
           :name => raw_info['name'],
-          :email => raw_info['email']
+          :email => raw_info['email'],
           :first_name => raw_info['name'],
           :last_name => raw_info['name']
         }
+      end
+
+      def callback_url
+        full_host + script_name + callback_path
       end
 
       extra do
@@ -44,6 +51,8 @@ module OmniAuth
     end
   end
 end
+
+OmniAuth.config.add_camelization 'pptv', 'Pptv'
 
 ActionDispatch::Reloader.to_prepare do
 
@@ -89,4 +98,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   }, path_prefix: '/social_sign_in'
 
 end
+
 
