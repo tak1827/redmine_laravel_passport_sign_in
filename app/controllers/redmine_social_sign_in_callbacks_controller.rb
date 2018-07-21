@@ -21,9 +21,10 @@ class RedmineSocialSignInCallbacksController < AccountController
       end
 
       user           = User.new
-      user.mail      = get_attribute(auth, :email)
+      user.login     = get_attribute(auth, :email)
       user.firstname = get_attribute(auth, :first_name)
       user.lastname  = get_attribute(auth, :last_name)
+      user.mail      = get_attribute(auth, :email)
       user.random_password
       user.register
 
