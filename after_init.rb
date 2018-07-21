@@ -2,9 +2,9 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class Pptv < OmniAuth::Strategies::OAuth2
+    class LaravelPassport < OmniAuth::Strategies::OAuth2
       # Give your strategy a name.
-      option :name, "pptv"
+      option :name, "passport"
 
       # This is where you pass the options you would pass when
       # initializing your consumer from the OAuth gem.
@@ -14,8 +14,6 @@ module OmniAuth
         :token_url => 'http://172.17.0.3/oauth/token'
       }
 
-      #option :client_id, Setting.plugin_redmine_social_sign_in['pptv_app_id']
-      #option :client_secret, Setting.plugin_redmine_social_sign_in['pptv_app_secret']
       option :scope, ''
       option :provider_ignores_state, true
 
@@ -52,7 +50,7 @@ module OmniAuth
   end
 end
 
-OmniAuth.config.add_camelization 'pptv', 'Pptv'
+OmniAuth.config.add_camelization 'passport', 'LaravelPassport'
 
 ActionDispatch::Reloader.to_prepare do
 
@@ -62,11 +60,9 @@ end
 
 Rails.application.config.middleware.use OmniAuth::Builder do
 
-  provider :pptv, setup: -> (env) {
-    env['omniauth.strategy'].options[:client_id]     = Setting.plugin_redmine_social_sign_in['pptv_app_id']
-    env['omniauth.strategy'].options[:client_secret] = Setting.plugin_redmine_social_sign_in['pptv_app_secret']
+  provider :passport, setup: -> (env) {
+    env['omniauth.strategy'].options[:client_id]     = Setting.plugin_redmine_social_sign_in['passport_app_id']
+    env['omniauth.strategy'].options[:client_secret] = Setting.plugin_redmine_social_sign_in['passport_app_secret']
   }, path_prefix: '/social_sign_in'
 
 end
-
-

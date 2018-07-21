@@ -1,17 +1,17 @@
-<div class="<%= Redmine::Plugin.registered_plugins[:easy_extensions].nil? ? 'sso-sign-in' : 'easy-social-login' %>">
-  <% if Setting.plugin_redmine_social_sign_in['pptv_enabled'] == '1' %>
-    <%= link_to('social_sign_in/pptv', :class =>"sso-sign-in-btn", title: l(:title_social_sign_in, provider: l(:label_pptv))) do %>
-      <%= l(:label_social_sign_in) %>    
+<div class="<%= Redmine::Plugin.registered_plugins[:easy_extensions].nil? ? 'oauth2-sign-in' : 'easy-social-login' %>">
+  <% if Setting.plugin_redmine_social_sign_in['passport_enabled'] == '1' %>
+    <%= link_to('social_sign_in/passport', :class =>"oauth2-sign-in-btn", title: l(:title_oauth2_sign_in, provider: l(:label_passport))) do %>
+      <%= l(:label_oauth2_sign_in) %>    
     <% end %>
   <% end %>
 </div>
 <style type="text/css">
-  .sso-sign-in {
+  .oauth2-sign-in {
     margin: -2em auto 2em auto;
     padding: 20px;
     width: 300px;
   }
- .sso-sign-in-btn {
+ .oauth2-sign-in-btn {
     display: inline-block;
     font-weight: bold;
     padding: 0.5em 0.5em;
@@ -19,13 +19,13 @@
     width: 100%;
     text-align: center;
   }
-  .sso-sign-in-btn:hover {
+  .oauth2-sign-in-btn:hover {
     background: #1ec7bb;
   }
-  a.sso-sign-in-btn {
+  a.oauth2-sign-in-btn {
     color: #fff;
   }
-  a.sso-sign-in-btn:hover {
+  a.oauth2-sign-in-btn:hover {
     text-decoration: none;
   }
 </style>
