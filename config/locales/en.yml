@@ -1,5 +1,5 @@
 en:
-  redmine_social_sign_in:
+  redmine_laravel_passport_sign_in:
     app_id: Client ID
     app_secret: Client secret
     enable: Enable

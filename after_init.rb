@@ -54,15 +54,15 @@ OmniAuth.config.add_camelization 'passport', 'LaravelPassport'
 
 ActionDispatch::Reloader.to_prepare do
 
-  require 'redmine_social_sign_in/hooks'
+  require 'redmine_laravel_passport_sign_in/hooks'
 
 end
 
 Rails.application.config.middleware.use OmniAuth::Builder do
 
   provider :passport, setup: -> (env) {
-    env['omniauth.strategy'].options[:client_id]     = Setting.plugin_redmine_social_sign_in['passport_app_id']
-    env['omniauth.strategy'].options[:client_secret] = Setting.plugin_redmine_social_sign_in['passport_app_secret']
-  }, path_prefix: '/social_sign_in'
+    env['omniauth.strategy'].options[:client_id]     = Setting.plugin_redmine_laravel_passport_sign_in['passport_app_id']
+    env['omniauth.strategy'].options[:client_secret] = Setting.plugin_redmine_laravel_passport_sign_in['passport_app_secret']
+  }, path_prefix: '/laravel_passport_sign_in'
 
 end

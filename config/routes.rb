@@ -1,2 +1,2 @@
-get 'social_sign_in/:provider/callback', to: 'redmine_social_sign_in_callbacks#social_sign_in_callback'
-get 'social_sign_in/failure', to: 'redmine_social_sign_in_callbacks#failure'
+get 'laravel_passport_sign_in/:provider/callback', to: 'redmine_laravel_passport_sign_in_callbacks#laravel_passport_sign_in_callback'
+get 'laravel_passport_sign_in/failure', to: 'redmine_laravel_passport_sign_in_callbacks#failure'

@@ -1,15 +1,15 @@
 <h3><%= l(:label_passport) %></h3>
 <p>
-  <%= label_tag('settings_passport_enabled', l(:enable, scope: [:redmine_social_sign_in])) %>
+  <%= label_tag('settings_passport_enabled', l(:enable, scope: [:redmine_laravel_passport_sign_in])) %>
   <%= check_box_tag('settings[passport_enabled]', '1', @settings['passport_enabled'] == '1') %>
 </p>
 
 <p>
-  <%= label_tag('settings_passport_app_id', l(:app_id, scope: [:redmine_social_sign_in])) %>
+  <%= label_tag('settings_passport_app_id', l(:app_id, scope: [:redmine_laravel_passport_sign_in])) %>
   <%= text_field_tag 'settings[passport_app_id]', @settings['passport_app_id'] %>
 </p>
 
 <p>
-  <%= label_tag('settings_passport_app_secret', l(:app_secret, scope: [:redmine_social_sign_in])) %>
+  <%= label_tag('settings_passport_app_secret', l(:app_secret, scope: [:redmine_laravel_passport_sign_in])) %>
   <%= text_field_tag 'settings[passport_app_secret]', @settings['passport_app_secret'] %>
 </p>
