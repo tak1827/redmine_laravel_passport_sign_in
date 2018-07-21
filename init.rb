@@ -1,5 +1,5 @@
 Redmine::Plugin.register :redmine_laravel_passport_sign_in do
-  name 'Social Sign In'
+  name 'Laravel Passport Sign In'
   author ' tak'
   description 'sign in through laravel passport'
   version '1.0.3'
