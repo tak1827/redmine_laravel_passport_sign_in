@@ -1,4 +1,4 @@
-<div class="oauth2-sign-in" %>">
+<div class="oauth2-sign-in">
   <% if Setting.plugin_redmine_laravel_passport_sign_in['passport_enabled'] == '1' %>
     <%= link_to('laravel_passport_sign_in/passport', :class =>"oauth2-sign-in-btn", title: l(:title_oauth2_sign_in, provider: l(:label_passport))) do %>
       <%= l(:label_oauth2_sign_in) %>    

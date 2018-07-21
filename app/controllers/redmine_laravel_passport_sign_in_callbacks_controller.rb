@@ -1,4 +1,4 @@
-class RedmineSocialSignInCallbacksController < AccountController
+class RedmineLaravelPassportSignInCallbacksController < AccountController
 
   skip_before_action :verify_authenticity_token, only: [:laravel_passport_sign_in_callback, :failure]
 
