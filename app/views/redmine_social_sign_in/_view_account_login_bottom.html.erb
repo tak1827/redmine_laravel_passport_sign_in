@@ -1,5 +1,4 @@
-<div class="<%= Redmine::Plugin.registered_plugins[:easy_extensions].nil? ? 'social_sign_in' : 'easy-social-login' %>">
-  <%= l(:label_social_sign_in) %>:
+<div class="<%= Redmine::Plugin.registered_plugins[:easy_extensions].nil? ? 'sso-sign-in' : 'easy-social-login' %>">
   <% if Setting.plugin_redmine_social_sign_in['google_enabled'] == '1' %>
     <%= link_to('social_sign_in/google_oauth2', title: l(:title_social_sign_in, provider: l(:label_google))) do %>
       <%= image_tag('google.png', plugin: 'redmine_social_sign_in', size: '24') %>
@@ -31,15 +30,32 @@
     <% end %>
   <% end %>
   <% if Setting.plugin_redmine_social_sign_in['pptv_enabled'] == '1' %>
-    <%= link_to('social_sign_in/pptv', title: l(:title_social_sign_in, provider: l(:label_pptv))) do %>
-      <%= image_tag('pptv.png', plugin: 'redmine_social_sign_in', size: '24') %>
+    <%= link_to('social_sign_in/pptv', :class =>"sso-sign-in-btn", title: l(:title_social_sign_in, provider: l(:label_pptv))) do %>
+      <%= l(:label_social_sign_in) %>    
     <% end %>
   <% end %>
 </div>
 <style type="text/css">
-  .social_sign_in {
+  .sso-sign-in {
     margin: -2em auto 2em auto;
     padding: 20px;
-    width: 340px;
+    width: 300px;
+  }
+ .sso-sign-in-btn {
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.5em 0.5em;
+    background: #00bcd4;
+    width: 100%;
+    text-align: center;
+  }
+  .sso-sign-in-btn:hover {
+    background: #1ec7bb;
+  }
+  a.sso-sign-in-btn {
+    color: #fff;
+  }
+  a.sso-sign-in-btn:hover {
+    text-decoration: none;
   }
 </style>
