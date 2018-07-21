@@ -3,7 +3,7 @@ en:
     app_id: Client ID
     app_secret: Client secret
     enable: Enable
-  label_oauth2: OAuth2
+  label_passport: Laravel Passport
   label_oauth2_sign_in: Sign in with OAuth2.0
   label_provider_help: Help
   title_oauth2_sign_in: Click to sign in with %{provider}
